@@ -8,7 +8,7 @@ class   Anneemodel(models.Model):
     _description = 'stat par an'
     annee = fields.Integer("Année",default=2023, required=True)
     annee_team = fields.Many2one( "crm.team",string='Équipe commerciale', required=True)
-    mois = fields.One2many('moisvente', inverse_name='annee',string="Mois", readonly=True)
+    mois = fields.One2many('moisvente', inverse_name='annee',string="Mois")
     annee_chifre_ob = fields.Float(string="CA", compute="update_anneee")
     annee_chifre_aff = fields.Float(string="%")
     annee_comer_ob = fields.Float(string="MC")   
