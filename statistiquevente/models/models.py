@@ -161,6 +161,7 @@ class   Anneemodel(models.Model):
             somme_mars_reel = 0
             somme_mars_livraison = 0
             somme_mars_materiel = 0
+            mars_marge_objectif = 0
             mars_chifre_aff_objectif = 0
             mars_materiel_objectif = 0 
             mars_contrat_objectif = 0
@@ -732,51 +733,65 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 3 and date.today().month ==3:
                         mars_list.append(mois)
+                        mois.moi_comer_ob = mars_marge_objectif  
+                        mois.moi_chifre_aff_ob = mars_chifre_aff_objectif 
+                        mois.moi_contrat_ob = mars_contrat_objectif                           
+                        mois.moi_client_ob = mars_client_objectif  
+                        mois.moi_reel_ob  = mars_reel_objectif  
+                        mois.moi_materiels_ob = mars_materiel_objectif   
+                        mois.moi_livraison_ob = mars_livraison_objectif  
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_mars_chifre_aff=somme_mars_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_mars_chifre_aff_1=somme_mars_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_mars_chifre_aff = 0      
+                            somme_mars_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_mars_marge=somme_mars_marge/mois.moi_comer_ob
+                            somme_mars_marge_1=somme_mars_marge/mois.moi_comer_ob
                         else:
-                            somme_mars_marge = 0  
+                            somme_mars_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_mars_contrat=somme_mars_contrat/mois.moi_contrat_ob
+                            somme_mars_contrat_1=somme_mars_contrat/mois.moi_contrat_ob
                         else:
-                            somme_mars_contrat = 0                         
+                            somme_mars_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_mars_client=somme_mars_client/mois.moi_client_ob
+                            somme_mars_client_1=somme_mars_client/mois.moi_client_ob
                         else:
-                            somme_mars_client = 0
+                            somme_mars_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_mars_reel=somme_mars_reel/mois.moi_reel_ob
+                            somme_mars_reel_1=somme_mars_reel/mois.moi_reel_ob
                         else:
-                            somme_mars_reel = 0
+                            somme_mars_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_mars_livraison=somme_mars_livraison/mois.moi_livraison_ob
+                            somme_mars_livraison_1=somme_mars_livraison/mois.moi_livraison_ob
                         else:
-                            somme_mars_livraison = 0
+                            somme_mars_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_mars_materiel=somme_mars_materiel/mois.moi_materiels_ob
+                            somme_mars_materiel_1=somme_mars_materiel/mois.moi_materiels_ob
                         else:
-                            somme_mars_materiel = 0
+                            somme_mars_materiel_1 = 0
                         
                         
                 if mars_list:
-                    mars_list[0].moi_comer =somme_mars_marge
-                    mars_list[0].moi_chifre_aff = somme_mars_chifre_aff
-                    mars_list[0].moi_contrat = somme_mars_contrat
-                    mars_list[0].moi_client = somme_mars_client
-                    mars_list[0].moi_reel = somme_mars_reel
-                    mars_list[0].moi_livraison = somme_mars_livraison
-                    mars_list[0].moi_materiels = somme_mars_materiel
+                    mars_list[0].moi_comer_ob =somme_fevrier_marge
+                    mars_list[0].moi_comer =somme_mars_marge_1
+                    mars_list[0].moi_chifre_aff_ob = somme_mars_chifre_aff
+                    mars_list[0].moi_chifre_aff = somme_mars_chifre_aff_1
+                    mars_list[0].moi_contrat_ob = somme_mars_contrat
+                    mars_list[0].moi_contrat = somme_mars_contrat_1
+                    mars_list[0].moi_client_ob  = somme_mars_client
+                    mars_list[0].moi_client = somme_mars_client_1
+                    mars_list[0].moi_reel_ob  = somme_mars_reel
+                    mars_list[0].moi_reel = somme_mars_reel_1
+                    mars_list[0].moi_livraison_ob  = somme_mars_livraison
+                    mars_list[0].moi_livraison = somme_mars_livraison_1
+                    mars_list[0].moi_materiels_ob  = somme_mars_materiel
+                    mars_list[0].moi_materiels = somme_mars_materiel_1
                     print("mars_list[0]",mars_list[0])
                 if not mars_list and date.today().month ==3:
                     new_mars = self.env['moisvente'].sudo().create({
@@ -797,50 +812,64 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 4 and date.today().month == 4:
                         avril_list.append(mois)
+                        mois.moi_comer_ob = avril_marge_objectif   
+                        mois.moi_chifre_aff_ob = avril_chifre_aff_objectif 
+                        mois.moi_contrat_ob = avril_contrat_objectif                            
+                        mois.moi_client_ob = avril_client_objectif   
+                        mois.moi_reel_ob  = avril_reel_objectif  
+                        mois.moi_materiels_ob = avril_materiel_objectif    
+                        mois.moi_livraison_ob = avril_livraison_objectif  
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_avril_chifre_aff=somme_avril_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_avril_chifre_aff_1=somme_avril_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_avril_chifre_aff = 0      
+                            somme_avril_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_avril_marge=somme_avril_marge/mois.moi_comer_ob
+                            somme_avril_marge_1=somme_avril_marge/mois.moi_comer_ob
                         else:
-                            somme_avril_marge = 0  
+                            somme_avril_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_avril_contrat=somme_avril_contrat/mois.moi_contrat_ob
+                            somme_avril_contrat_1=somme_avril_contrat/mois.moi_contrat_ob
                         else:
-                            somme_avril_contrat = 0                         
+                            somme_avril_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_avril_client=somme_avril_client/mois.moi_client_ob
+                            somme_avril_client_1=somme_avril_client/mois.moi_client_ob
                         else:
-                            somme_avril_client = 0
+                            somme_avril_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_avril_reel=somme_avril_reel/mois.moi_reel_ob
+                            somme_avril_reel_1=somme_avril_reel/mois.moi_reel_ob
                         else:
-                            somme_avril_reel = 0
+                            somme_avril_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_avril_livraison=somme_avril_livraison/mois.moi_livraison_ob
+                            somme_avril_livraison_1=somme_avril_livraison/mois.moi_livraison_ob
                         else:
-                            somme_avril_livraison = 0
+                            somme_avril_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_avril_materiel=somme_avril_materiel/mois.moi_materiels_ob
+                            somme_avril_materiel_1=somme_avril_materiel/mois.moi_materiels_ob
                         else:
-                            somme_avril_materiel = 0
+                            somme_avril_materiel_1 = 0
                       
                 if avril_list:
-                    avril_list[0].moi_comer =somme_avril_marge
-                    avril_list[0].moi_chifre_aff = somme_avril_chifre_aff
-                    avril_list[0].moi_contrat = somme_avril_contrat
-                    avril_list[0].moi_client = somme_avril_client
-                    avril_list[0].moi_reel = somme_avril_reel
-                    avril_list[0].moi_livraison = somme_avril_livraison
-                    avril_list[0].moi_materiels = somme_avril_materiel
+                    avril_list[0].moi_comer_ob =somme_avril_marge
+                    avril_list[0].moi_comer =somme_avril_marge_1
+                    avril_list[0].moi_chifre_aff_ob  = somme_avril_chifre_aff
+                    avril_list[0].moi_chifre_aff = somme_avril_chifre_aff_1
+                    avril_list[0].moi_contrat_ob  = somme_avril_contrat
+                    avril_list[0].moi_contrat = somme_avril_contrat_1
+                    avril_list[0].moi_client_ob  = somme_avril_client
+                    avril_list[0].moi_client = somme_avril_client_1
+                    avril_list[0].moi_reel_ob  = somme_avril_reel
+                    avril_list[0].moi_reel = somme_avril_reel_1
+                    avril_list[0].moi_livraison_ob  = somme_avril_livraison
+                    avril_list[0].moi_livraison = somme_avril_livraison_1
+                    avril_list[0].moi_materiels_ob  = somme_avril_materiel
+                    avril_list[0].moi_materiels = somme_avril_materiel_1
                     print("avril_list[0]",avril_list[0])
                 if not avril_list and date.today().month == 4:
                     new_avril = self.env['moisvente'].sudo().create({
@@ -861,50 +890,64 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 5 and date.today().month ==5:
                         mai_list.append(mois)
+                        mois.moi_comer_ob = mai_marge_objectif    
+                        mois.moi_chifre_aff_ob = mai_chifre_aff_objectif  
+                        mois.moi_contrat_ob = mai_contrat_objectif                             
+                        mois.moi_client_ob = mai_client_objectif   
+                        mois.moi_reel_ob  = mai_reel_objectif   
+                        mois.moi_materiels_ob = mai_materiel_objectif     
+                        mois.moi_livraison_ob = mai_livraison_objectif   
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_mai_chifre_aff=somme_mai_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_mai_chifre_aff_1=somme_mai_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_mai_chifre_aff = 0      
+                            somme_mai_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_mai_marge=somme_mai_marge/mois.moi_comer_ob
+                            somme_mai_marge_1=somme_mai_marge/mois.moi_comer_ob
                         else:
-                            somme_mai_marge = 0  
+                            somme_mai_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_mai_contrat=somme_mai_contrat/mois.moi_contrat_ob
+                            somme_mai_contrat_1=somme_mai_contrat/mois.moi_contrat_ob
                         else:
-                            somme_mai_contrat = 0                         
+                            somme_mai_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_mai_client=somme_mai_client/mois.moi_client_ob
+                            somme_mai_client_1=somme_mai_client/mois.moi_client_ob
                         else:
-                            somme_mai_client = 0
+                            somme_mai_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_mai_reel=somme_mai_reel/mois.moi_reel_ob
+                            somme_mai_reel_1=somme_mai_reel/mois.moi_reel_ob
                         else:
-                            somme_mai_reel = 0
+                            somme_mai_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_mai_livraison=somme_mai_livraison/mois.moi_livraison_ob
+                            somme_mai_livraison_1=somme_mai_livraison/mois.moi_livraison_ob
                         else:
-                            somme_mai_livraison = 0
+                            somme_mai_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_mai_materiel=somme_mai_materiel/mois.moi_materiels_ob
+                            somme_mai_materiel_1=somme_mai_materiel/mois.moi_materiels_ob
                         else:
-                            somme_mai_materiel = 0
+                            somme_mai_materiel_1 = 0
                         
                 if mai_list:
-                    mai_list[0].moi_comer =somme_mai_marge
-                    mai_list[0].moi_chifre_aff = somme_mai_chifre_aff
-                    mai_list[0].moi_contrat = somme_mai_contrat
-                    mai_list[0].moi_client = somme_mai_client
-                    mai_list[0].moi_reel = somme_mai_reel
-                    mai_list[0].moi_livraison = somme_mai_livraison
-                    mai_list[0].moi_materiels = somme_mai_materiel
+                    mai_list[0].moi_comer_ob  =somme_mai_marge
+                    mai_list[0].moi_comer =somme_mai_marge_1
+                    mai_list[0].moi_chifre_aff_ob = somme_mai_chifre_aff
+                    mai_list[0].moi_chifre_aff = somme_mai_chifre_aff_1
+                    mai_list[0].moi_contrat_ob  = somme_mai_contrat
+                    mai_list[0].moi_contrat = somme_mai_contrat_1
+                    mai_list[0].moi_client_ob  = somme_mai_client
+                    mai_list[0].moi_client = somme_mai_client_1
+                    mai_list[0].moi_reel_ob = somme_mai_reel
+                    mai_list[0].moi_reel = somme_mai_reel_1
+                    mai_list[0].moi_livraison_ob  = somme_mai_livraison
+                    mai_list[0].moi_livraison = somme_mai_livraison_1
+                    mai_list[0].moi_materiels_ob  = somme_mai_materiel
+                    mai_list[0].moi_materiels = somme_mai_materiel_1
                     print("mai_list[0]",mai_list[0])
                 if not mai_list and date.today().month ==5:
                     new_mai = self.env['moisvente'].sudo().create({
@@ -925,50 +968,65 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 6 and date.today().month ==6:
                         juin_list.append(mois)
+                        mois.moi_comer_ob = juin_marge_objectif     
+                        mois.moi_chifre_aff_ob = juin_chifre_aff_objectif   
+                        mois.moi_contrat_ob = juin_contrat_objectif                              
+                        mois.moi_client_ob = juin_client_objectif    
+                        mois.moi_reel_ob  = juin_reel_objectif   
+                        mois.moi_materiels_ob = juin_materiel_objectif      
+                        mois.moi_livraison_ob = juin_livraison_objectif  
+                        
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_juin_chifre_aff=somme_juin_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_juin_chifre_aff_1=somme_juin_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_juin_chifre_aff = 0      
+                            somme_juin_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_juin_marge=somme_juin_marge/mois.moi_comer_ob
+                            somme_juin_marge_1=somme_juin_marge/mois.moi_comer_ob
                         else:
-                            somme_juin_marge = 0  
+                            somme_juin_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_juin_contrat=somme_juin_contrat/mois.moi_contrat_ob
+                            somme_juin_contrat_1=somme_juin_contrat/mois.moi_contrat_ob
                         else:
-                            somme_juin_contrat = 0                         
+                            somme_juin_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_juin_client=somme_juin_client/mois.moi_client_ob
+                            somme_juin_client_1=somme_juin_client/mois.moi_client_ob
                         else:
-                            somme_juin_client = 0
+                            somme_juin_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_juin_reel=somme_juin_reel/mois.moi_reel_ob
+                            somme_juin_reel_1=somme_juin_reel/mois.moi_reel_ob
                         else:
-                            somme_juin_reel = 0
+                            somme_juin_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_juin_livraison=somme_juin_livraison/mois.moi_livraison_ob
+                            somme_juin_livraison_1=somme_juin_livraison/mois.moi_livraison_ob
                         else:
-                            somme_juin_livraison = 0
+                            somme_juin_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_juin_materiel=somme_juin_materiel/mois.moi_materiels_ob
+                            somme_juin_materiel_1=somme_juin_materiel/mois.moi_materiels_ob
                         else:
-                            somme_juin_materiel = 0
+                            somme_juin_materiel_1 = 0
             
                 if juin_list:
-                    juin_list[0].moi_comer =somme_juin_marge
-                    juin_list[0].moi_chifre_aff = somme_juin_chifre_aff
-                    juin_list[0].moi_contrat = somme_juin_contrat
-                    juin_list[0].moi_client = somme_juin_client
-                    juin_list[0].moi_reel = somme_juin_reel
-                    juin_list[0].moi_livraison = somme_juin_livraison
-                    juin_list[0].moi_materiels = somme_juin_materiel
+                    juin_list[0].moi_comer_ob  =somme_juin_marge
+                    juin_list[0].moi_comer =somme_juin_marge_1
+                    juin_list[0].moi_chifre_aff_ob  = somme_juin_chifre_aff
+                    juin_list[0].moi_chifre_aff = somme_juin_chifre_aff_1
+                    juin_list[0].moi_contrat_ob  = somme_juin_contrat
+                    juin_list[0].moi_contrat = somme_juin_contrat_1
+                    juin_list[0].moi_client_ob  = somme_juin_client
+                    juin_list[0].moi_client = somme_juin_client_1
+                    juin_list[0].moi_reel_ob  = somme_juin_reel
+                    juin_list[0].moi_reel = somme_juin_reel_1
+                    juin_list[0].moi_livraison_ob  = somme_juin_livraison
+                    juin_list[0].moi_livraison = somme_juin_livraison_1
+                    juin_list[0].moi_materiels_ob  = somme_juin_materiel
+                    juin_list[0].moi_materiels = somme_juin_materiel_1
                     print("juin_list[0]",juin_list[0])
                 if not juin_list and date.today().month ==6:
                     new_juin = self.env['moisvente'].sudo().create({
@@ -990,52 +1048,66 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 7 and date.today().month ==7:
                         juillet_list.append(mois)
+                        mois.moi_comer_ob = juillet_marge_objectif      
+                        mois.moi_chifre_aff_ob = juillet_chifre_aff_objectif    
+                        mois.moi_contrat_ob = juillet_contrat_objectif                               
+                        mois.moi_client_ob = juillet_client_objectif     
+                        mois.moi_reel_ob  = juillet_reel_objectif    
+                        mois.moi_materiels_ob = juillet_materiel_objectif       
+                        mois.moi_livraison_ob = juillet_livraison_objectif 
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_juillet_chifre_aff=somme_juillet_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_juillet_chifre_aff_1=somme_juillet_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_juillet_chifre_aff = 0      
+                            somme_juillet_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_juillet_marge=somme_juillet_marge/mois.moi_comer_ob
+                            somme_juillet_marge_1=somme_juillet_marge/mois.moi_comer_ob
                         else:
-                            somme_juillet_marge = 0  
+                            somme_juillet_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_juin_contrat=somme_juin_contrat/mois.moi_contrat_ob
+                            somme_juin_contrat_1=somme_juin_contrat/mois.moi_contrat_ob
                         else:
-                            somme_juillet_contrat = 0                         
+                            somme_juillet_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_juillet_client=somme_juillet_client/mois.moi_client_ob
+                            somme_juillet_client_1=somme_juillet_client/mois.moi_client_ob
                         else:
-                            somme_juillet_client = 0
+                            somme_juillet_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_juillet_reel=somme_juillet_reel/mois.moi_reel_ob
+                            somme_juillet_reel_1=somme_juillet_reel/mois.moi_reel_ob
                         else:
-                            somme_juillet_reel = 0
+                            somme_juillet_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_juillet_livraison=somme_juillet_livraison/mois.moi_livraison_ob
+                            somme_juillet_livraison_1=somme_juillet_livraison/mois.moi_livraison_ob
                         else:
-                            somme_juillet_livraison = 0
+                            somme_juillet_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_juillet_materiel=somme_juillet_materiel/mois.moi_materiels_ob
+                            somme_juillet_materiel_1=somme_juillet_materiel/mois.moi_materiels_ob
                         else:
-                            somme_juillet_materiel = 0
+                            somme_juillet_materiel_1 = 0
                         
                         
                         
                 if juillet_list:
-                    juillet_list[0].moi_comer =somme_juillet_marge
-                    juillet_list[0].moi_chifre_aff = somme_juillet_chifre_aff
-                    juillet_list[0].moi_contrat = somme_juillet_contrat
-                    juillet_list[0].moi_client = somme_juillet_client
-                    juillet_list[0].moi_reel = somme_juillet_reel
-                    juillet_list[0].moi_livraison = somme_juillet_livraison
-                    juillet_list[0].moi_materiels = somme_juillet_materiel
+                    juillet_list[0].moi_comer_ob  =somme_juillet_marge
+                    juillet_list[0].moi_comer =somme_juillet_marge_1
+                    juillet_list[0].moi_chifre_aff_ob  = somme_juillet_chifre_aff
+                    juillet_list[0].moi_chifre_aff = somme_juillet_chifre_aff_1
+                    juillet_list[0].moi_contrat_ob  = somme_juillet_contrat
+                    juillet_list[0].moi_contrat = somme_juillet_contrat_1
+                    juillet_list[0].moi_client_ob  = somme_juillet_client
+                    juillet_list[0].moi_client = somme_juillet_client_1
+                    juillet_list[0].moi_reel_ob  = somme_juillet_reel
+                    juillet_list[0].moi_reel = somme_juillet_reel_1
+                    juillet_list[0].moi_livraison_ob  = somme_juillet_livraison
+                    juillet_list[0].moi_livraison = somme_juillet_livraison_1
+                    juillet_list[0].moi_materiels_ob  = somme_juillet_materiel
+                    juillet_list[0].moi_materiels = somme_juillet_materiel_1
                     print("juillet_list[0]",juillet_list[0])
                 if not juillet_list and date.today().month ==7 :
                     new_juillet = self.env['moisvente'].sudo().create({
@@ -1059,50 +1131,64 @@ class   Anneemodel(models.Model):
                 for mois in rec.mois:
                     if mois.mois_int  == 8 and date.today().month ==8:
                         aout_list.append(mois)
+                        mois.moi_comer_ob = aout_marge_objectif       
+                        mois.moi_chifre_aff_ob = aout_chifre_aff_objectif     
+                        mois.moi_contrat_ob = aout_contrat_objectif                                
+                        mois.moi_client_ob = aout_client_objectif      
+                        mois.moi_reel_ob  = aout_reel_objectif     
+                        mois.moi_materiels_ob = aout_materiel_objectif        
+                        mois.moi_livraison_ob = aout_livraison_objectif
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_aout_chifre_aff=somme_aout_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_aout_chifre_aff_1=somme_aout_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_aout_chifre_aff = 0      
+                            somme_aout_chifre_aff_1 = 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_aout_marge=somme_aout_marge/mois.moi_comer_ob
+                            somme_aout_marge_1=somme_aout_marge/mois.moi_comer_ob
                         else:
-                            somme_aout_marge = 0  
+                            somme_aout_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_aout_contrat=somme_aout_contrat/mois.moi_contrat_ob
+                            somme_aout_contrat_1=somme_aout_contrat/mois.moi_contrat_ob
                         else:
-                            somme_aout_contrat = 0                         
+                            somme_aout_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_aout_client=somme_aout_client/mois.moi_client_ob
+                            somme_aout_client_1=somme_aout_client/mois.moi_client_ob
                         else:
-                            somme_aout_client = 0
+                            somme_aout_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_aout_reel=somme_aout_reel/mois.moi_reel_ob
+                            somme_aout_reel_1=somme_aout_reel/mois.moi_reel_ob
                         else:
-                            somme_aout_reel = 0
+                            somme_aout_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_aout_livraison=somme_aout_livraison/mois.moi_livraison_ob
+                            somme_aout_livraison_1=somme_aout_livraison/mois.moi_livraison_ob
                         else:
-                            somme_aout_livraison = 0
+                            somme_aout_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_aout_materiel=somme_aout_materiel/mois.moi_materiels_ob
+                            somme_aout_materiel_1=somme_aout_materiel/mois.moi_materiels_ob
                         else:
-                            somme_aout_materiel = 0
+                            somme_aout_materiel_1 = 0
                        
                 if aout_list:
-                    aout_list[0].moi_comer =somme_aout_marge
-                    aout_list[0].moi_chifre_aff = somme_aout_chifre_aff
-                    aout_list[0].moi_contrat = somme_aout_contrat
-                    aout_list[0].moi_client = somme_aout_client
-                    aout_list[0].moi_reel = somme_aout_reel
-                    aout_list[0].moi_livraison = somme_aout_livraison
-                    aout_list[0].moi_materiels = somme_aout_materiel
+                    aout_list[0].moi_comer_ob  =somme_aout_marge
+                    aout_list[0].moi_comer =somme_aout_marge_1
+                    aout_list[0].moi_chifre_aff_ob  = somme_aout_chifre_aff
+                    aout_list[0].moi_chifre_aff = somme_aout_chifre_aff_1
+                    aout_list[0].moi_contrat_ob  = somme_aout_contrat
+                    aout_list[0].moi_contrat = somme_aout_contrat_1
+                    aout_list[0].moi_client_ob  = somme_aout_client
+                    aout_list[0].moi_client = somme_aout_client_1
+                    aout_list[0].moi_reel_ob  = somme_aout_reel
+                    aout_list[0].moi_reel = somme_aout_reel_1
+                    aout_list[0].moi_livraison_ob  = somme_aout_livraison
+                    aout_list[0].moi_livraison = somme_aout_livraison_1
+                    aout_list[0].moi_materiels_ob = somme_aout_materiel
+                    aout_list[0].moi_materiels = somme_aout_materiel_1
                     print("aout_list[0]",aout_list[0])
                 if not aout_list and date.today().month ==8:
                     new_aout = self.env['moisvente'].sudo().create({
