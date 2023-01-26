@@ -145,6 +145,13 @@ class   Anneemodel(models.Model):
             somme_fevrier_reel = 0
             somme_fevrier_livraison = 0
             somme_fevrier_materiel = 0
+            fevrier_marge_objectif = 0
+            fevrier_chifre_aff_objectif = 0
+            fevrier_materiel_objectif = 0 
+            fevrier_contrat_objectif = 0
+            fevrier_client_objectif = 0
+            fevrier_reel_objectif = 0
+            fevrier_livraison_objectif = 0
             fevrier_ok = False
             ########## le moi mars
             somme_mars_marge = 0
@@ -154,6 +161,12 @@ class   Anneemodel(models.Model):
             somme_mars_reel = 0
             somme_mars_livraison = 0
             somme_mars_materiel = 0
+            mars_chifre_aff_objectif = 0
+            mars_materiel_objectif = 0 
+            mars_contrat_objectif = 0
+            mars_client_objectif = 0
+            mars_reel_objectif = 0
+            mars_livraison_objectif = 0
             mars_ok = False
             ########## le moi avril
             somme_avril_marge = 0
@@ -163,6 +176,13 @@ class   Anneemodel(models.Model):
             somme_avril_reel = 0
             somme_avril_livraison = 0
             somme_avril_materiel = 0
+            avril_marge_objectif = 0
+            avril_chifre_aff_objectif = 0
+            avril_materiel_objectif = 0 
+            avril_contrat_objectif = 0
+            avril_client_objectif = 0
+            avril_reel_objectif = 0
+            avril_livraison_objectif = 0
             avril_ok = False
             ########## le moi mai
             somme_mai_marge = 0
@@ -172,6 +192,13 @@ class   Anneemodel(models.Model):
             somme_mai_reel = 0
             somme_mai_livraison = 0
             somme_mai_materiel = 0
+            mai_marge_objectif = 0
+            mai_chifre_aff_objectif = 0
+            mai_materiel_objectif = 0 
+            mai_contrat_objectif = 0
+            mai_client_objectif = 0
+            mai_reel_objectif = 0
+            mai_livraison_objectif = 0
             mai_ok = False
             ########## le moi juin
             somme_juin_marge = 0
@@ -181,6 +208,13 @@ class   Anneemodel(models.Model):
             somme_juin_reel = 0
             somme_juin_livraison = 0
             somme_juin_materiel = 0
+            juin_marge_objectif = 0
+            juin_chifre_aff_objectif = 0
+            juin_materiel_objectif = 0 
+            juin_contrat_objectif = 0
+            juin_client_objectif = 0
+            juin_reel_objectif = 0
+            juin_livraison_objectif = 0
             juin_ok = False
             ########## le moi juillet
             somme_juillet_marge = 0
@@ -190,6 +224,13 @@ class   Anneemodel(models.Model):
             somme_juillet_reel = 0
             somme_juillet_livraison = 0
             somme_juillet_materiel = 0
+            juillet_marge_objectif = 0
+            juillet_chifre_aff_objectif = 0
+            juillet_materiel_objectif = 0 
+            juillet_contrat_objectif = 0
+            juillet_client_objectif = 0
+            juillet_reel_objectif = 0
+            juillet_livraison_objectif = 0
             juillet_ok = False
             ########## le moi Août
             somme_aout_marge = 0
@@ -199,6 +240,13 @@ class   Anneemodel(models.Model):
             somme_aout_reel = 0
             somme_aout_livraison = 0
             somme_aout_materiel = 0
+            aout_marge_objectif = 0
+            aout_chifre_aff_objectif = 0
+            aout_materiel_objectif = 0 
+            aout_contrat_objectif = 0
+            aout_client_objectif = 0
+            aout_reel_objectif = 0
+            aout_livraison_objectif = 0
             aout_ok = False
             ########## le moi septembre
             somme_septembre_marge = 0
@@ -208,6 +256,13 @@ class   Anneemodel(models.Model):
             somme_septembre_reel = 0
             somme_septembre_livraison = 0
             somme_septembre_materiel = 0
+            septembre_marge_objectif = 0
+            septembre_chifre_aff_objectif = 0
+            septembre_materiel_objectif = 0 
+            septembre_contrat_objectif = 0
+            septembre_client_objectif = 0
+            septembre_reel_objectif = 0
+            septembre_livraison_objectif = 0
             septembre_ok = False
             ########## le moi octobre
             somme_octobre_marge = 0
@@ -217,6 +272,13 @@ class   Anneemodel(models.Model):
             somme_octobre_reel = 0
             somme_octobre_livraison = 0
             somme_octobre_materiel = 0
+            octobre_marge_objectif = 0
+            octobre_chifre_aff_objectif = 0
+            octobre_materiel_objectif = 0 
+            octobre_contrat_objectif = 0
+            octobre_client_objectif = 0
+            octobre_reel_objectif = 0
+            octobre_livraison_objectif = 0
             octobre_ok = False
             ########## le moi novembre
             somme_novembre_marge =0
@@ -226,6 +288,13 @@ class   Anneemodel(models.Model):
             somme_novembre_reel = 0
             somme_novembre_livraison = 0
             somme_novembre_materiel = 0
+            novembre_marge_objectif = 0
+            novembre_chifre_aff_objectif = 0
+            novembre_materiel_objectif = 0 
+            novembre_contrat_objectif = 0
+            novembre_client_objectif = 0
+            novembre_reel_objectif = 0
+            novembre_livraison_objectif = 0
             novembre_ok    =False
             ########## le moi Décembre  decembre
             somme_decembre_marge = 0
@@ -235,6 +304,13 @@ class   Anneemodel(models.Model):
             somme_decembre_reel = 0
             somme_decembre_livraison = 0
             somme_decembre_materiel = 0
+            decembre_marge_objectif = 0
+            decembre_chifre_aff_objectif = 0
+            decembre_materiel_objectif = 0 
+            decembre_contrat_objectif = 0
+            decembre_client_objectif = 0
+            decembre_reel_objectif = 0
+            decembre_livraison_objectif = 0
             decembre_ok = False
 
             for sal in sale:
@@ -260,6 +336,7 @@ class   Anneemodel(models.Model):
                         janvier_client_objectif = team_vente.crm_team_N_client 
                         janvier_reel_objectif = team_vente.crm_team_reel  
                         janvier_livraison_objectif = team_vente.crm_team_livraison 
+                        ####
                         somme_janvier_marge += sal.x_studio_marge_commerciale
                         somme_janvier_chifre_aff += sal.sale_finance
                         somme_janvier_contrat += sal.sale_new_contrat
@@ -270,6 +347,14 @@ class   Anneemodel(models.Model):
                         janvier_ok = True
                     if sal.create_date.month == 2:
                         ########## le moi Février
+                        fevrier_marge_objectif = team_vente.crm_team_comer
+                        fevrier_chifre_aff_objectif = team_vente.crm_team_chif  
+                        fevrier_materiel_objectif = team_vente.crm_team_N_materiel  
+                        fevrier_contrat_objectif = team_vente.crm_team_N_contrat 
+                        fevrier_client_objectif = team_vente.crm_team_N_client
+                        fevrier_reel_objectif = team_vente.crm_team_reel  
+                        fevrier_livraison_objectif = team_vente.crm_team_livraison 
+                        ####
                         somme_fevrier_marge += sal.x_studio_marge_commerciale
                         somme_fevrier_chifre_aff += sal.sale_finance
                         somme_fevrier_contrat += sal.sale_new_contrat
@@ -281,6 +366,14 @@ class   Anneemodel(models.Model):
                         fevrier_ok = True
                     if sal.create_date.month == 3:
                         ########## le moi mars
+                        mars_marge_objectif = team_vente.crm_team_comer
+                        mars_chifre_aff_objectif =  team_vente.crm_team_chif  
+                        mars_materiel_objectif = team_vente.crm_team_N_materiel 
+                        mars_contrat_objectif = team_vente.crm_team_N_contrat 
+                        mars_client_objectif = team_vente.crm_team_N_client
+                        mars_reel_objectif = team_vente.crm_team_reel
+                        mars_livraison_objectif = team_vente.crm_team_livraison 
+                        ###
                         somme_mars_marge += sal.x_studio_marge_commerciale
                         somme_mars_chifre_aff += sal.sale_finance
                         somme_mars_contrat += sal.sale_new_contrat
@@ -293,6 +386,14 @@ class   Anneemodel(models.Model):
                         mars_ok = True
                     if sal.create_date.month == 4:
                         ########## le moi avril
+                        avril_marge_objectif =team_vente.crm_team_comer
+                        avril_chifre_aff_objectif =  team_vente.crm_team_chif 
+                        avril_materiel_objectif = team_vente.crm_team_N_materiel 
+                        avril_contrat_objectif = team_vente.crm_team_N_contrat 
+                        avril_client_objectif = team_vente.crm_team_N_client
+                        avril_reel_objectif =  team_vente.crm_team_reel
+                        avril_livraison_objectif = team_vente.crm_team_livraison 
+                        ####
                         somme_avril_marge += sal.x_studio_marge_commerciale
                         somme_avril_chifre_aff += sal.sale_finance
                         somme_avril_contrat += sal.sale_new_contrat
@@ -306,6 +407,14 @@ class   Anneemodel(models.Model):
                         avril_ok = True
                     if sal.create_date.month == 5:
                         ########## le moi mai
+                        mai_marge_objectif =team_vente.crm_team_comer
+                        mai_chifre_aff_objectif = team_vente.crm_team_chif 
+                        mai_materiel_objectif = team_vente.crm_team_N_materiel 
+                        mai_contrat_objectif =  team_vente.crm_team_N_contrat 
+                        mai_client_objectif =  team_vente.crm_team_N_client
+                        mai_reel_objectif =team_vente.crm_team_reel
+                        mai_livraison_objectif = team_vente.crm_team_livraison 
+                        ###
                         somme_mai_marge += sal.x_studio_marge_commerciale
                         somme_mai_chifre_aff += sal.sale_finance
                         somme_mai_contrat += sal.sale_new_contrat
@@ -318,6 +427,13 @@ class   Anneemodel(models.Model):
                         mai_ok = True
                     if sal.create_date.month == 6:
                         ########## le moi juin
+                        juin_marge_objectif =team_vente.crm_team_comer
+                        juin_chifre_aff_objectif = team_vente.crm_team_chif 
+                        juin_materiel_objectif = team_vente.crm_team_N_materiel 
+                        juin_contrat_objectif = team_vente.crm_team_N_contrat 
+                        juin_client_objectif = team_vente.crm_team_N_client
+                        juin_reel_objectif = team_vente.crm_team_reel
+                        juin_livraison_objectif =  team_vente.crm_team_livraison
                         somme_juin_marge += sal.x_studio_marge_commerciale
                         somme_juin_chifre_aff += sal.sale_finance
                         somme_juin_contrat += sal.sale_new_contrat
@@ -331,6 +447,14 @@ class   Anneemodel(models.Model):
                         juin_ok = True
                     if sal.create_date.month == 7:
                         ########## le moi juillet
+                        juillet_marge_objectif =team_vente.crm_team_comer
+                        juillet_chifre_aff_objectif =  team_vente.crm_team_chif 
+                        juillet_materiel_objectif =team_vente.crm_team_N_materiel
+                        juillet_contrat_objectif = team_vente.crm_team_N_contrat 
+                        juillet_client_objectif = team_vente.crm_team_N_client
+                        juillet_reel_objectif = team_vente.crm_team_reel
+                        juillet_livraison_objectif = team_vente.crm_team_livraison
+                        ###
                         somme_juillet_marge += sal.x_studio_marge_commerciale
                         somme_juillet_chifre_aff += sal.sale_finance
                         somme_juillet_contrat += sal.sale_new_contrat
@@ -343,6 +467,14 @@ class   Anneemodel(models.Model):
                         juillet_ok = True
                     if sal.create_date.month == 8:
                         ########## le moi Août
+                        aout_marge_objectif =team_vente.crm_team_comer
+                        aout_chifre_aff_objectif = team_vente.crm_team_chif 
+                        aout_materiel_objectif = team_vente.crm_team_N_materiel
+                        aout_contrat_objectif =team_vente.crm_team_N_contrat 
+                        aout_client_objectif =team_vente.crm_team_N_client
+                        aout_reel_objectif = team_vente.crm_team_reel
+                        aout_livraison_objectif = team_vente.crm_team_livraison
+                        ###
                         somme_aout_marge += sal.x_studio_marge_commerciale
                         somme_aout_chifre_aff += sal.sale_finance
                         somme_aout_contrat += sal.sale_new_contrat
@@ -355,6 +487,14 @@ class   Anneemodel(models.Model):
                         aout_ok = True
                     if sal.create_date.month == 9:
                         ########## le moi septembre
+                        septembre_marge_objectif = team_vente.crm_team_comer
+                        septembre_chifre_aff_objectif =team_vente.crm_team_chif
+                        septembre_materiel_objectif = team_vente.crm_team_N_materiel
+                        septembre_contrat_objectif = team_vente.crm_team_N_contrat 
+                        septembre_client_objectif = team_vente.crm_team_N_client
+                        septembre_reel_objectif = team_vente.crm_team_reel
+                        septembre_livraison_objectif = team_vente.crm_team_livraison
+                        ####
                         somme_septembre_marge += sal.x_studio_marge_commerciale
                         somme_septembre_chifre_aff += sal.sale_finance
                         somme_septembre_contrat += sal.sale_new_contrat
@@ -367,6 +507,14 @@ class   Anneemodel(models.Model):
                         septembre_ok = True
                     if sal.create_date.month == 10:
                         ########## le moi octobre
+                        octobre_marge_objectif =team_vente.crm_team_comer
+                        octobre_chifre_aff_objectif =team_vente.crm_team_chif
+                        octobre_materiel_objectif =  team_vente.crm_team_N_materiel
+                        octobre_contrat_objectif = team_vente.crm_team_N_contrat 
+                        octobre_client_objectif = team_vente.crm_team_N_client
+                        octobre_reel_objectif = team_vente.crm_team_reel
+                        octobre_livraison_objectif = team_vente.crm_team_livraison
+                        ####
                         somme_octobre_marge += sal.x_studio_marge_commerciale
                         somme_octobre_chifre_aff += sal.sale_finance
                         somme_octobre_contrat += sal.sale_new_contrat
@@ -379,6 +527,14 @@ class   Anneemodel(models.Model):
                         octobre_ok = True
                     if sal.create_date.month == 11:
                         ########## le moi novembre
+                        novembre_marge_objectif = team_vente.crm_team_comer
+                        novembre_chifre_aff_objectif = team_vente.crm_team_chif
+                        novembre_materiel_objectif = team_vente.crm_team_N_materiel
+                        novembre_contrat_objectif = team_vente.crm_team_N_contrat 
+                        novembre_client_objectif = team_vente.crm_team_N_client
+                        novembre_reel_objectif = team_vente.crm_team_reel
+                        novembre_livraison_objectif = team_vente.crm_team_livraison
+                        ####
                         somme_novembre_marge+=sal.x_studio_marge_commerciale
                         somme_novembre_chifre_aff+=sal.sale_finance
                         somme_novembre_contrat+=sal.sale_new_contrat
@@ -391,6 +547,14 @@ class   Anneemodel(models.Model):
                         novembre_ok = True
                     if sal.create_date.month == 12:
                         ########## le moi Décembre  decembre
+                        decembre_marge_objectif = team_vente.crm_team_comer
+                        decembre_chifre_aff_objectif = team_vente.crm_team_chif
+                        decembre_materiel_objectif = team_vente.crm_team_N_materiel
+                        decembre_contrat_objectif = team_vente.crm_team_N_contrat
+                        decembre_client_objectif = team_vente.crm_team_N_client
+                        decembre_reel_objectif = team_vente.crm_team_reel
+                        decembre_livraison_objectif = team_vente.crm_team_livraison
+                        ###
                         somme_decembre_marge += sal.x_studio_marge_commerciale
                         somme_decembre_chifre_aff += sal.sale_finance
                         somme_decembre_contrat += sal.sale_new_contrat
@@ -469,7 +633,7 @@ class   Anneemodel(models.Model):
                     janvier_list[0].moi_materiels = somme_janvier_materiel_1
                     janvier_list[0].moi_materiels_ob = somme_janvier_materiel
                     print("janvier_list[0]",janvier_list[0])
-                else:
+                if not janvier_list  and date.today().month ==1:
                     new_janvier = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -487,7 +651,7 @@ class   Anneemodel(models.Model):
             if fevrier_ok:
                 fevrier_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 2:
+                    if mois.mois_int  == 2 and date.today().month == 2:
                         fevrier_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -534,7 +698,7 @@ class   Anneemodel(models.Model):
                     fevrier_list[0].moi_livraison = somme_fevrier_livraison
                     fevrier_list[0].moi_materiels = somme_fevrier_materiel
                     print("fevrier_list[0]",fevrier_list[0])
-                else:
+                if not fevrier_list and date.today().month == 2 :
                     new_fevrier = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         #'moi_comer': somme_fevrier_marge,
