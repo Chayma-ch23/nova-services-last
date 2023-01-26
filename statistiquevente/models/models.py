@@ -129,6 +129,13 @@ class   Anneemodel(models.Model):
             somme_janvier_reel = 0
             somme_janvier_livraison = 0
             somme_janvier_materiel = 0
+            janvier_marge_objectif = 0
+            janvier_chifre_aff_objectif = 0
+            janvier_materiel_objectif = 0 
+            janvier_contrat_objectif = 0
+            janvier_client_objectif = 0
+            janvier_reel_objectif = 0
+            janvier_livraison_objectif = 0
             janvier_ok = False
             ########## le moi Février
             somme_fevrier_marge = 0
@@ -246,6 +253,7 @@ class   Anneemodel(models.Model):
                     somme_materiel += sal.sale_materiels_vendu
                     if sal.create_date.month == 1:
                         ########## le moi janvier
+                        janvier_marge_objectif = team_vente.crm_team_comer 
                         somme_janvier_marge += sal.x_studio_marge_commerciale
                         somme_janvier_chifre_aff += sal.sale_finance
                         somme_janvier_contrat += sal.sale_new_contrat
@@ -393,18 +401,19 @@ class   Anneemodel(models.Model):
             if janvier_ok:
                 janvier_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 1:
+                    if mois.mois_int  == 1 and date.today().month ==1:
                         janvier_list.append(mois)
+                        mois.moi_comer_ob = janvier_marge_objectif
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
                             somme_janvier_chifre_aff=somme_janvier_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_janvier_chifre_aff = 0      
+                            somme_janvier_chifre_aff= 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
-                            somme_janvier_marge=somme_janvier_marge/mois.moi_comer_ob
+                            somme_janvier_marge_1=somme_janvier_marge/mois.moi_comer_ob
                         else:
-                            somme_janvier_marge = 0  
+                            somme_janvier_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
                             somme_janvier_contrat=somme_janvier_contrat/mois.moi_contrat_ob
@@ -432,7 +441,8 @@ class   Anneemodel(models.Model):
                             somme_janvier_materiel = 0
                         
                 if janvier_list:
-                    janvier_list[0].moi_comer =somme_janvier_marge
+                    janvier_list[0].moi_comer =somme_janvier_marge_1
+                    janvier_list[0].moi_comer_ob =somme_janvier_marge
                     janvier_list[0].moi_chifre_aff = somme_janvier_chifre_aff
                     janvier_list[0].moi_contrat = somme_janvier_contrat
                     janvier_list[0].moi_client = somme_janvier_client
