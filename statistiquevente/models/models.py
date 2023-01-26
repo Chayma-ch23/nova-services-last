@@ -716,7 +716,7 @@ class   Anneemodel(models.Model):
             if mars_ok:
                 mars_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 3:
+                    if mois.mois_int  == 3 and date.today().month ==3:
                         mars_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -764,7 +764,7 @@ class   Anneemodel(models.Model):
                     mars_list[0].moi_livraison = somme_mars_livraison
                     mars_list[0].moi_materiels = somme_mars_materiel
                     print("mars_list[0]",mars_list[0])
-                else:
+                if not mars_list and date.today().month ==3:
                     new_mars = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -781,7 +781,7 @@ class   Anneemodel(models.Model):
             if avril_ok:
                 avril_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 4:
+                    if mois.mois_int  == 4 and date.today().month == 4:
                         avril_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -828,7 +828,7 @@ class   Anneemodel(models.Model):
                     avril_list[0].moi_livraison = somme_avril_livraison
                     avril_list[0].moi_materiels = somme_avril_materiel
                     print("avril_list[0]",avril_list[0])
-                else:
+                if not avril_list and date.today().month == 4:
                     new_avril = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -845,7 +845,7 @@ class   Anneemodel(models.Model):
             if mai_ok:
                 mai_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 5:
+                    if mois.mois_int  == 5 and date.today().month ==5:
                         mai_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -892,7 +892,7 @@ class   Anneemodel(models.Model):
                     mai_list[0].moi_livraison = somme_mai_livraison
                     mai_list[0].moi_materiels = somme_mai_materiel
                     print("mai_list[0]",mai_list[0])
-                else:
+                if not mai_list and date.today().month ==5:
                     new_mai = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -909,7 +909,7 @@ class   Anneemodel(models.Model):
             if juin_ok:
                 juin_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 6:
+                    if mois.mois_int  == 6 and date.today().month ==6:
                         juin_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -956,7 +956,7 @@ class   Anneemodel(models.Model):
                     juin_list[0].moi_livraison = somme_juin_livraison
                     juin_list[0].moi_materiels = somme_juin_materiel
                     print("juin_list[0]",juin_list[0])
-                else:
+                if not juin_list and date.today().month ==6:
                     new_juin = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -974,7 +974,7 @@ class   Anneemodel(models.Model):
             if juillet_ok:
                 juillet_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 7:
+                    if mois.mois_int  == 7 and date.today().month ==7:
                         juillet_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -1023,7 +1023,7 @@ class   Anneemodel(models.Model):
                     juillet_list[0].moi_livraison = somme_juillet_livraison
                     juillet_list[0].moi_materiels = somme_juillet_materiel
                     print("juillet_list[0]",juillet_list[0])
-                else:
+                if not juillet_list and date.today().month ==7 :
                     new_juillet = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -1043,7 +1043,7 @@ class   Anneemodel(models.Model):
             if aout_ok:
                 aout_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 8:
+                    if mois.mois_int  == 8 and date.today().month ==8:
                         aout_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -1090,7 +1090,7 @@ class   Anneemodel(models.Model):
                     aout_list[0].moi_livraison = somme_aout_livraison
                     aout_list[0].moi_materiels = somme_aout_materiel
                     print("aout_list[0]",aout_list[0])
-                else:
+                if not aout_list and date.today().month ==8:
                     new_aout = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -1108,7 +1108,7 @@ class   Anneemodel(models.Model):
             if septembre_ok:
                 septembre_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 9:
+                    if mois.mois_int  == 9 and date.today().month ==9:
                         septembre_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -1156,7 +1156,7 @@ class   Anneemodel(models.Model):
                     septembre_list[0].moi_livraison = somme_septembre_livraison
                     septembre_list[0].moi_materiels = somme_septembre_materiel
                     print("septembre_list[0]",septembre_list[0])
-                else:
+                if not septembre_list and date.today().month ==9:
                     new_septembre = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -1175,7 +1175,7 @@ class   Anneemodel(models.Model):
             if octobre_ok:
                 octobre_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 10:
+                    if mois.mois_int  == 10 and date.today().month == 10:
                         octobre_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -1223,7 +1223,7 @@ class   Anneemodel(models.Model):
                     octobre_list[0].moi_livraison = somme_octobre_livraison
                     octobre_list[0].moi_materiels = somme_octobre_materiel
                     print("octobre_list[0]",octobre_list[0])
-                else:
+                if not octobre_list and date.today().month == 10 :
                     new_octobre = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -1242,7 +1242,7 @@ class   Anneemodel(models.Model):
             if novembre_ok:
                 novembre_list =[]
                 for mois in rec.mois:
-                    if mois.mois_int  == 11:
+                    if mois.mois_int  == 11 and date.today().month ==11:
                         novembre_list.append(mois)
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
@@ -1289,7 +1289,7 @@ class   Anneemodel(models.Model):
                     novembre_list[0].moi_livraison = somme_novembre_livraison
                     novembre_list[0].moi_materiels = somme_novembre_materiel
                     print("novembre_list[0]",novembre_list[0])
-                else:
+                if not novembre_list and date.today().month ==11:
                     new_novembre = self.env['moisvente'].sudo().create({
                         'annee': rec.id,
                         'moi_comer': 0,
@@ -1307,7 +1307,7 @@ class   Anneemodel(models.Model):
             if decembre_ok:
                         decembre_list = []
                         for mois in rec.mois:
-                            if mois.mois_int == 12:
+                            if mois.mois_int == 12 and date.today().month ==12:
                                 decembre_list.append(mois)
                                 ##par chifre_aff
                                 if mois.moi_chifre_aff_ob>0:
@@ -1355,7 +1355,7 @@ class   Anneemodel(models.Model):
                             decembre_list[0].moi_livraison = somme_decembre_livraison
                             decembre_list[0].moi_materiels = somme_decembre_materiel
                             print("decembre_list[0]", decembre_list[0])
-                        else:
+                        if not decembre_list and date.today().month ==12:
                             new_decembre = self.env['moisvente'].sudo().create({
                                 'annee': rec.id,
                                 'moi_comer': 0,
