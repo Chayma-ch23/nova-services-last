@@ -253,7 +253,13 @@ class   Anneemodel(models.Model):
                     somme_materiel += sal.sale_materiels_vendu
                     if sal.create_date.month == 1:
                         ########## le moi janvier
-                        janvier_marge_objectif = team_vente.crm_team_comer 
+                        janvier_marge_objectif = team_vente.crm_team_comer                         
+                        janvier_chifre_aff_objectif = team_vente.crm_team_chif  
+                        janvier_materiel_objectif = team_vente.crm_team_N_materiel  
+                        janvier_contrat_objectif = team_vente.crm_team_N_contrat 
+                        janvier_client_objectif = team_vente.crm_team_N_client 
+                        janvier_reel_objectif = team_vente.crm_team_reel  
+                        janvier_livraison_objectif = team_vente.crm_team_livraison 
                         somme_janvier_marge += sal.x_studio_marge_commerciale
                         somme_janvier_chifre_aff += sal.sale_finance
                         somme_janvier_contrat += sal.sale_new_contrat
@@ -404,11 +410,18 @@ class   Anneemodel(models.Model):
                     if mois.mois_int  == 1 and date.today().month ==1:
                         janvier_list.append(mois)
                         mois.moi_comer_ob = janvier_marge_objectif
+                        mois.moi_chifre_aff_ob = janvier_chifre_aff_objectif
+                        mois.moi_contrat_ob = janvier_contrat_objectif                         
+                        mois.moi_client_ob = janvier_client_objectif
+                        mois.moi_reel_ob  = janvier_reel_objectif
+                        mois.moi_materiels_ob = janvier_materiel_objectif 
+                        mois.moi_livraison_ob = janvier_livraison_objectif                        
+                        
                         ##par chifre_aff
                         if mois.moi_chifre_aff_ob>0:
-                            somme_janvier_chifre_aff=somme_janvier_chifre_aff/mois.moi_chifre_aff_ob
+                            somme_janvier_chifre_aff_1=somme_janvier_chifre_aff/mois.moi_chifre_aff_ob
                         else:
-                            somme_janvier_chifre_aff= 0      
+                            somme_janvier_chifre_aff_1= 0      
                         ##par marge com
                         if mois.moi_comer_ob>0:
                             somme_janvier_marge_1=somme_janvier_marge/mois.moi_comer_ob
@@ -416,39 +429,45 @@ class   Anneemodel(models.Model):
                             somme_janvier_marge_1 = 0  
                         ##par contrat
                         if mois.moi_contrat_ob>0:
-                            somme_janvier_contrat=somme_janvier_contrat/mois.moi_contrat_ob
+                            somme_janvier_contrat_1=somme_janvier_contrat/mois.moi_contrat_ob
                         else:
-                            somme_janvier_contrat = 0                         
+                            somme_janvier_contrat_1 = 0                         
                          ##par client
                         if mois.moi_client_ob>0:
-                            somme_janvier_client=somme_janvier_client/mois.moi_client_ob
+                            somme_janvier_client_1=somme_janvier_client/mois.moi_client_ob
                         else:
-                            somme_janvier_client = 0
+                            somme_janvier_client_1 = 0
                         ##par reel
                         if mois.moi_reel_ob>0:
-                            somme_janvier_reel=somme_janvier_reel/mois.moi_reel_ob
+                            somme_janvier_reel_1=somme_janvier_reel/mois.moi_reel_ob
                         else:
-                            somme_janvier_reel = 0
+                            somme_janvier_reel_1 = 0
                         ##par livraison
                         if mois.moi_livraison_ob>0:
-                            somme_janvier_livraison=somme_janvier_livraison/mois.moi_livraison_ob
+                            somme_janvier_livraison_1=somme_janvier_livraison/mois.moi_livraison_ob
                         else:
-                            somme_janvier_livraison = 0
+                            somme_janvier_livraison_1 = 0
                         ##par materiels
                         if mois.moi_materiels_ob>0:
-                            somme_janvier_materiel=somme_janvier_materiel/mois.moi_materiels_ob
+                            somme_janvier_materiel_1=somme_janvier_materiel/mois.moi_materiels_ob
                         else:
-                            somme_janvier_materiel = 0
+                            somme_janvier_materiel_1 = 0
                         
                 if janvier_list:
-                    janvier_list[0].moi_comer =somme_janvier_marge_1
                     janvier_list[0].moi_comer_ob =somme_janvier_marge
-                    janvier_list[0].moi_chifre_aff = somme_janvier_chifre_aff
-                    janvier_list[0].moi_contrat = somme_janvier_contrat
-                    janvier_list[0].moi_client = somme_janvier_client
-                    janvier_list[0].moi_reel = somme_janvier_reel
-                    janvier_list[0].moi_livraison = somme_janvier_livraison
-                    janvier_list[0].moi_materiels = somme_janvier_materiel
+                    janvier_list[0].moi_comer =somme_janvier_marge_1  
+                    janvier_list[0].moi_chifre_aff_ob = somme_janvier_chifre_aff
+                    janvier_list[0].moi_chifre_aff = somme_janvier_chifre_aff_1
+                    janvier_list[0].moi_contrat = somme_janvier_contrat_1
+                    janvier_list[0].moi_contrat_ob = somme_janvier_contrat
+                    janvier_list[0].moi_client = somme_janvier_client_1
+                    janvier_list[0].moi_client_ob = somme_janvier_client
+                    janvier_list[0].moi_reel = somme_janvier_reel_1
+                    janvier_list[0].moi_reel_ob = somme_janvier_reel
+                    janvier_list[0].moi_livraison = somme_janvier_livraison_1
+                    janvier_list[0].moi_livraison_ob = somme_janvier_livraison
+                    janvier_list[0].moi_materiels = somme_janvier_materiel_1
+                    janvier_list[0].moi_materiels_ob = somme_janvier_materiel
                     print("janvier_list[0]",janvier_list[0])
                 else:
                     new_janvier = self.env['moisvente'].sudo().create({
