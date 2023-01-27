@@ -111,7 +111,7 @@ class   Anneemodel(models.Model):
             date_fin = datetime(year=rec.annee, month=12, day=31)
             d2 = datetime.strftime(date_fin, "%Y-%m-%d %H:%M:%S")
             #sale=self.env['sale.order'].search([('create_date', '&gt;=', date)])
-            sale = self.env['sale.order'].sudo().search([('create_date', '>=', d1),('create_date', '<=', d2)])
+            sale = self.env['sale.order'].sudo().search([('date_order', '>=', d1),('date_order', '<=', d2)])
 
             ########## par an
             somme_marge=0
@@ -328,7 +328,7 @@ class   Anneemodel(models.Model):
                     somme_reel += sal.x_studio_marge_relle
                     somme_livraison += sal.sale_frais
                     somme_materiel += sal.sale_materiels_vendu
-                    if sal.create_date.month == 1:
+                    if sal.date_order.month == 1:
                         ########## le moi janvier
                         janvier_marge_objectif = team_vente.crm_team_comer                         
                         janvier_chifre_aff_objectif = team_vente.crm_team_chif  
@@ -346,7 +346,7 @@ class   Anneemodel(models.Model):
                         somme_janvier_livraison += sal.sale_frais
                         somme_janvier_materiel += sal.sale_materiels_vendu                        
                         janvier_ok = True
-                    if sal.create_date.month == 2:
+                    if sal.date_order.month == 2:
                         ########## le moi Février
                         fevrier_marge_objectif = team_vente.crm_team_comer
                         fevrier_chifre_aff_objectif = team_vente.crm_team_chif  
@@ -365,7 +365,7 @@ class   Anneemodel(models.Model):
                         somme_fevrier_materiel += sal.sale_materiels_vendu  
                        
                         fevrier_ok = True
-                    if sal.create_date.month == 3:
+                    if sal.date_order.month == 3:
                         ########## le moi mars
                         mars_marge_objectif = team_vente.crm_team_comer
                         mars_chifre_aff_objectif =  team_vente.crm_team_chif  
@@ -385,7 +385,7 @@ class   Anneemodel(models.Model):
                         somme_mars_materiel += sal.sale_materiels_vendu
                         
                         mars_ok = True
-                    if sal.create_date.month == 4:
+                    if sal.date_order.month == 4:
                         ########## le moi avril
                         avril_marge_objectif =team_vente.crm_team_comer
                         avril_chifre_aff_objectif =  team_vente.crm_team_chif 
@@ -406,7 +406,7 @@ class   Anneemodel(models.Model):
                         
                         
                         avril_ok = True
-                    if sal.create_date.month == 5:
+                    if sal.date_order.month == 5:
                         ########## le moi mai
                         mai_marge_objectif =team_vente.crm_team_comer
                         mai_chifre_aff_objectif = team_vente.crm_team_chif 
@@ -426,7 +426,7 @@ class   Anneemodel(models.Model):
                         somme_mai_materiel += sal.sale_materiels_vendu
                          
                         mai_ok = True
-                    if sal.create_date.month == 6:
+                    if sal.date_order.month == 6:
                         ########## le moi juin
                         juin_marge_objectif =team_vente.crm_team_comer
                         juin_chifre_aff_objectif = team_vente.crm_team_chif 
@@ -446,7 +446,7 @@ class   Anneemodel(models.Model):
                         
                         
                         juin_ok = True
-                    if sal.create_date.month == 7:
+                    if sal.date_order.month == 7:
                         ########## le moi juillet
                         juillet_marge_objectif =team_vente.crm_team_comer
                         juillet_chifre_aff_objectif =  team_vente.crm_team_chif 
@@ -466,7 +466,7 @@ class   Anneemodel(models.Model):
                         somme_juillet_materiel += sal.sale_materiels_vendu
                         
                         juillet_ok = True
-                    if sal.create_date.month == 8:
+                    if sal.date_order.month == 8:
                         ########## le moi Août
                         aout_marge_objectif =team_vente.crm_team_comer
                         aout_chifre_aff_objectif = team_vente.crm_team_chif 
@@ -486,7 +486,7 @@ class   Anneemodel(models.Model):
                         somme_aout_materiel += sal.sale_materiels_vendu                        
                       
                         aout_ok = True
-                    if sal.create_date.month == 9:
+                    if sal.date_order.month == 9:
                         ########## le moi septembre
                         septembre_marge_objectif = team_vente.crm_team_comer
                         septembre_chifre_aff_objectif =team_vente.crm_team_chif
@@ -506,7 +506,7 @@ class   Anneemodel(models.Model):
                         somme_septembre_materiel += sal.sale_materiels_vendu                          
                         
                         septembre_ok = True
-                    if sal.create_date.month == 10:
+                    if sal.date_order.month == 10:
                         ########## le moi octobre
                         octobre_marge_objectif =team_vente.crm_team_comer
                         octobre_chifre_aff_objectif =team_vente.crm_team_chif
@@ -526,7 +526,7 @@ class   Anneemodel(models.Model):
                         somme_octobre_materiel += sal.sale_materiels_vendu    
                         
                         octobre_ok = True
-                    if sal.create_date.month == 11:
+                    if sal.date_order.month == 11:
                         ########## le moi novembre
                         novembre_marge_objectif = team_vente.crm_team_comer
                         novembre_chifre_aff_objectif = team_vente.crm_team_chif
@@ -546,7 +546,7 @@ class   Anneemodel(models.Model):
                         somme_novembre_materiel += sal.sale_materiels_vendu  
                        
                         novembre_ok = True
-                    if sal.create_date.month == 12:
+                    if sal.date_order.month == 12:
                         ########## le moi Décembre  decembre
                         decembre_marge_objectif = team_vente.crm_team_comer
                         decembre_chifre_aff_objectif = team_vente.crm_team_chif
