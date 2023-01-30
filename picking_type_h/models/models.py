@@ -3,6 +3,7 @@ from odoo import _, api, fields, models
 class Stockpikingheritst(models.Model):
     _inherit    = 'stock.picking'
     id_type_fait = fields.Integer("Preté")
+    id_origin_fait = fields.Integer("origin integer", compute="copute_origin")
 
     def button_validate(self):
         res = super(Stockpikingheritst, self).button_validate()
@@ -11,10 +12,11 @@ class Stockpikingheritst(models.Model):
                 rec.id_type_fait = 1
         return res
     
-    @api.onchange('origin')
-    def serach_document_origin(self):
+    @api.depends('origin')
+    def copute_origin(self):
         for rec in self:
             if rec.origin:
+                rec.id_origin_fait = 1
                 name = rec.origin
                 source_doc = name.split()
                 name_pret = False
@@ -26,6 +28,12 @@ class Stockpikingheritst(models.Model):
                      sp_stock = self.env['stock.picking'].search([('name', '=', name_pret)])
                      for rec in sp_stock:
                             rec.id_type_fait = 0
+            else:
+               rec.id_origin_fait = 0 
+                
+                      
+            
+   
 
 
 
