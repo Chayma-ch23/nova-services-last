@@ -10,6 +10,22 @@ class Stockpikingheritst(models.Model):
             if rec.picking_type_id.id == 8:
                 rec.id_type_fait = 1
         return res
+    
+    @api.onchange('origin')
+    def serach_document_origin(self):
+        for rec in self:
+            if rec.origin:
+                name = rec.origin
+                source_doc = name.split()
+                name_pret = False
+                try:
+                    name_pret = source_doc[2]
+                except:
+                    pass
+                if name_pret:
+                     sp_stock = self.env['stock.picking'].search([('name', '=', name_pret),('picking_type_id', '=',8)])
+                        for rec in sp_stock:
+                            rec.id_type_fait = 0
 
 
 
