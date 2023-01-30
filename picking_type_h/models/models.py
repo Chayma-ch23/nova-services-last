@@ -30,7 +30,7 @@ class Stocktypeinherit(models.Model):
     def _compute_picking_count_done(self):
         for rec in self:
             fact_count = self.env['stock.picking'].search_count(
-                [('id_type_fait', '=',1)])
+                [('id_type_fait', '=',1),('picking_type_id', '=',8)])
             rec.count_picking_done = fact_count
             print("rec.count_picking_done",rec.count_picking_done)
 
@@ -40,7 +40,7 @@ class Stocktypeinherit(models.Model):
             'name': 'Les Prêts',
             'res_model': 'stock.picking',
             'view_type': 'form',
-            'domain': [ ('id_type_fait', '=',1)],
+            'domain': [ ('id_type_fait', '=',1),('picking_type_id', '=',8)],
             'view_mode': 'tree,form',
 
         }
