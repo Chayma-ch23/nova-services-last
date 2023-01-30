@@ -23,7 +23,7 @@ class Stockpikingheritst(models.Model):
                 except:
                     pass
                 if name_pret:
-                     sp_stock = self.env['stock.picking'].search([('name', '=', name_pret),('picking_type_id', '=',8)])
+                     sp_stock = self.env['stock.picking'].search([('name', '=', name_pret)])
                      for rec in sp_stock:
                             rec.id_type_fait = 0
 
